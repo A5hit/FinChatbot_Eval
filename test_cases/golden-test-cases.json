@@ -1,0 +1,23 @@
+[
+    {
+        "id": "test_001",
+        "query": "What is a 401(k)?",
+        "expected_output": "A 401(k) is a retirement savings plan sponsored by employers that allows employees to save and invest a portion of their paycheck before taxes are taken out. It offers tax advantages and potential employer matching contributions.",
+        "context": "User asking about basic retirement account types",
+        "category": "retirement"
+    },
+    {
+        "id": "test_002",
+        "query": "What is the difference between a Roth IRA and Traditional IRA?",
+        "expected_output": "The main difference is when you pay taxes. With a Traditional IRA, contributions may be tax-deductible now, but withdrawals in retirement are taxed. With a Roth IRA, contributions are made with after-tax dollars, but qualified withdrawals in retirement are tax-free.",
+        "context": "User comparing retirement account types",
+        "category": "retirement"
+    },
+    {
+        "id": "test_003",
+        "query": "How much should I save for an emergency fund?",
+        "expected_output": "Financial advisors typically recommend saving 3-6 months of essential living expenses in an emergency fund. This provides a safety net for unexpected expenses like medical bills, car repairs, or job loss. The exact amount depends on your individual circumstances and risk tolerance.",
+        "context": "User asking about emergency savings",
+        "category": "savings"
+    }
+]
