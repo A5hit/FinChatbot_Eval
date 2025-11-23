@@ -22,7 +22,7 @@ DEFAULT_THRESHOLDS = {
     "relevancy": 0.7,
     "correctness": 0.75,
     "completeness": 0.7,
-    "toxicity": 0.10,
+    "toxicity": 0.2,
     "compliance": 0.8
 }
 
