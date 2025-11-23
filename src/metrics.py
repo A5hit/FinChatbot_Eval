@@ -1,8 +1,8 @@
 """
-Metrics Module - Skeleton with TODOs
+Metrics Module 
 
-YOUR TASK: Implement CustomGROQLLM and metrics functions
-This is YOUR EVALUATOR - what judges chatbot quality
+Implement CustomGROQLLM and metrics functions
+This is EVALUATOR - what judges chatbot quality
 """
 
 from deepeval.models import DeepEvalBaseLLM
@@ -244,11 +244,3 @@ def get_all_metrics(
     return metrics
 
 
-# Test your implementation
-if __name__ == "__main__":
-    # TODO: Test CustomGROQLLM (Day 2)
-    # llm = CustomGROQLLM()
-    # print(llm.get_model_name())
-    # response = llm.generate("Say hello in JSON: {\"message\": \"text\"}")
-    # print(response)
-    pass
