@@ -36,9 +36,9 @@ A robust, modular pipeline for automated LLM chatbot evaluation, using [DeepEval
 
 ### 1. Clone and install
 
-git clone https://github.com/a5hit/FinChatbot_Eval.git
-cd FinChatbot_Eval
-pip install -r requirements.txt
+- git clone https://github.com/a5hit/FinChatbot_Eval.git
+- cd FinChatbot_Eval
+- pip install -r requirements.txt
 
 
 ### 2. Configure your environment
