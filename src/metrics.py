@@ -13,6 +13,7 @@ import json
 from typing import Optional, List
 from groq import Groq
 from pydantic import BaseModel, ValidationError
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -44,7 +45,7 @@ class CustomGROQLLM(DeepEvalBaseLLM):
         if not api_key:
             raise ValueError("GROQ_API_KEY not found in environment.")
         self.client = Groq(api_key=api_key)
-        self.model = modal
+        self.model = model
         print(f"✅ CustomGROQLLM initialized with model: {model}")
     
     def load_model(self):
@@ -72,10 +73,10 @@ class CustomGROQLLM(DeepEvalBaseLLM):
                 temperature=0.0,
                 max_tokens=2000
             )
-            return message.choices[0].message.content
+            return response.choices[0].message.content
         except Exception as e:
             print(f"Error generating response: {e}")
-            return 
+            return ""
     
     async def a_generate(self, prompt: str) -> str:
         """
@@ -162,8 +163,7 @@ def get_completeness_metric(
             LLMTestCaseParams.EXPECTED_OUTPUT
         ],
         threshold=threshold,
-        model=eval_llm,
-        include_reason=True
+        model=eval_llm
     )
 
     print(f"✅ Created Completeness metric (threshold: {threshold})")
@@ -213,9 +213,10 @@ def get_compliance_metric(
             LLMTestCaseParams.EXPECTED_OUTPUT
         ],
         threshold=threshold,
-        model=eval_llm,
-        include_reason=True
+        model=eval_llm
     )
+    print(f"✅ Created Compliance metric (threshold: {threshold})")
+    return metric
 
 
 def get_all_metrics(
@@ -230,9 +231,12 @@ def get_all_metrics(
     print("Creating all metrics...")
     print("="*60)
 
+    if thresholds is None:
+        thresholds = DEFAULT_THRESHOLDS
+
     metrics = [
         get_relevancy_metric(thresholds.get("relevancy"), evaluation_model),
-        get_correctness_metric(thresholds.get("correctness"), evaluation_model),
+        get_correctness_metric(evaluation_model, thresholds.get("correctness")),
         get_completeness_metric(thresholds.get("completeness"), evaluation_model),
         get_toxicity_metric(thresholds.get("toxicity"), evaluation_model),
         get_compliance_metric(thresholds.get("compliance"), evaluation_model)

@@ -1,23 +1,92 @@
 [
     {
         "id": "test_001",
-        "query": "What is a 401(k)?",
-        "expected_output": "A 401(k) is a retirement savings plan sponsored by employers that allows employees to save and invest a portion of their paycheck before taxes are taken out. It offers tax advantages and potential employer matching contributions.",
-        "context": "User asking about basic retirement account types",
-        "category": "retirement"
+        "query": "What is a 401(k) retirement plan?",
+        "context": [
+            "User is asking about retirement planning basics"
+        ],
+        "expected_output": "A 401(k) is a retirement savings plan offered by employers that allows employees to contribute pre-tax income. Contributions and earnings grow tax-deferred until withdrawal in retirement.",
+        "category": "retirement_planning"
     },
     {
         "id": "test_002",
-        "query": "What is the difference between a Roth IRA and Traditional IRA?",
-        "expected_output": "The main difference is when you pay taxes. With a Traditional IRA, contributions may be tax-deductible now, but withdrawals in retirement are taxed. With a Roth IRA, contributions are made with after-tax dollars, but qualified withdrawals in retirement are tax-free.",
-        "context": "User comparing retirement account types",
-        "category": "retirement"
+        "query": "How much should I save for retirement?",
+        "context": [
+            "User wants to know retirement savings guidelines"
+        ],
+        "expected_output": "A general rule is to save 10-15% of your income for retirement, though this varies based on your age, current savings, and retirement goals. It's best to consult with a financial advisor for personalized advice.",
+        "category": "retirement_planning"
     },
     {
         "id": "test_003",
-        "query": "How much should I save for an emergency fund?",
-        "expected_output": "Financial advisors typically recommend saving 3-6 months of essential living expenses in an emergency fund. This provides a safety net for unexpected expenses like medical bills, car repairs, or job loss. The exact amount depends on your individual circumstances and risk tolerance.",
-        "context": "User asking about emergency savings",
+        "query": "What is the difference between a Roth IRA and traditional IRA?",
+        "context": [
+            "User comparing retirement account types"
+        ],
+        "expected_output": "A Roth IRA uses after-tax contributions and offers tax-free withdrawals in retirement, while a traditional IRA uses pre-tax contributions with tax-deferred growth but taxable withdrawals.",
+        "category": "retirement_planning"
+    },
+    {
+        "id": "test_004",
+        "query": "Should I invest in stocks or bonds?",
+        "context": [
+            "User asking for investment advice"
+        ],
+        "expected_output": "The choice between stocks and bonds depends on your risk tolerance, investment timeline, and financial goals. Stocks offer higher growth potential but more volatility, while bonds provide stability with lower returns. A diversified portfolio often includes both. Consult a financial advisor for personalized guidance.",
+        "category": "investment_advice"
+    },
+    {
+        "id": "test_005",
+        "query": "What is diversification in investing?",
+        "context": [
+            "User wants to understand investment concepts"
+        ],
+        "expected_output": "Diversification is an investment strategy that spreads investments across different asset classes, sectors, and securities to reduce risk. The goal is to minimize the impact of poor performance in any single investment on your overall portfolio.",
+        "category": "investment_concepts"
+    },
+    {
+        "id": "test_006",
+        "query": "What are the tax implications of selling stocks?",
+        "context": [
+            "User asking about capital gains taxes"
+        ],
+        "expected_output": "When you sell stocks, you may owe capital gains tax on the profit. Short-term gains (held <1 year) are taxed as ordinary income, while long-term gains (held >1 year) have preferential tax rates. Consult a tax professional for your specific situation.",
+        "category": "tax_planning"
+    },
+    {
+        "id": "test_007",
+        "query": "How do I create an emergency fund?",
+        "context": [
+            "User wants to build financial safety net"
+        ],
+        "expected_output": "An emergency fund should cover 3-6 months of essential expenses. Start by setting a monthly savings goal, keep the funds in a high-yield savings account for easy access, and automate contributions to build it consistently.",
         "category": "savings"
+    },
+    {
+        "id": "test_008",
+        "query": "What is compound interest?",
+        "context": [
+            "User learning about investment growth"
+        ],
+        "expected_output": "Compound interest is interest earned on both the initial principal and accumulated interest from previous periods. This creates exponential growth over time, making it a powerful tool for long-term investing.",
+        "category": "investment_concepts"
+    },
+    {
+        "id": "test_009",
+        "query": "Should I pay off debt or invest?",
+        "context": [
+            "User deciding between debt payoff and investing"
+        ],
+        "expected_output": "This depends on your debt's interest rate versus potential investment returns. High-interest debt (>7-8%) should typically be paid off first. For lower-interest debt, you might benefit more from investing while making minimum payments. Consider your risk tolerance and consult a financial advisor.",
+        "category": "debt_management"
+    },
+    {
+        "id": "test_010",
+        "query": "What is dollar-cost averaging?",
+        "context": [
+            "User asking about investment strategies"
+        ],
+        "expected_output": "Dollar-cost averaging is an investment strategy where you invest a fixed amount at regular intervals regardless of market conditions. This reduces the impact of market volatility and removes the need to time the market.",
+        "category": "investment_strategies"
     }
 ]

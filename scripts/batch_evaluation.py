@@ -1,9 +1,14 @@
 from deepeval.dataset import EvaluationDataset
 import os
+import sys
+# Add project root to sys.path
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from dotenv import load_dotenv
 from pathlib import Path
 from deepeval.test_case import LLMTestCase
 from deepeval import evaluate
+import deepeval
 
 from src.chatbot import FinancialAdvisorChatbot
 from src.metrics import get_all_metrics
@@ -12,7 +17,7 @@ load_dotenv()
 confident_api_key = os.getenv("CONFIDENT_API_KEY")
 if confident_api_key:
     try:
-        deepeval.login_with_confident_api_key(confident_api_key)
+        deepeval.login(confident_api_key)
         print("✅ Logged in to Confident AI (DeepEval Cloud)")
     except Exception as e:
         print(f"⚠️  Could not login to Confident AI: {e}")
@@ -20,7 +25,7 @@ if confident_api_key:
 else:
     print("⚠️  CONFIDENT_API_KEY not found - results won't be logged")
 
-def load_golden_test_cases(file_path="tests/test_custom_llm.py"):
+def load_golden_test_cases(file_path="test_cases/golden-test-cases.json"):
     dataset = EvaluationDataset()
     dataset.add_goldens_from_json_file(
         file_path=file_path,
@@ -68,11 +73,7 @@ def run_evaluation(chatbot_model="llama-3.1-8b-instant",evaluation_model="llama-
     # Step 5 : Run Batch Evaluation
     evaluate(
         test_cases=dataset.test_cases,
-        metrics=metrics,
-        run_config={
-            "name": f"Financial Advisor - {chatbot_model}",
-            "description": f"Evaluation with {evaluation_model} as judge"
-        }
+        metrics=metrics
     )
     print("="*70)
     print("Evaluation complete!")

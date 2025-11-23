@@ -1,5 +1,6 @@
 from groq import Groq
 import os
+from typing import List
 
 class FinancialAdvisorChatbot:
     """
@@ -15,17 +16,17 @@ class FinancialAdvisorChatbot:
         self.client = Groq(api_key=api_key)
 
         self.system_prompt = """
-        You are a financial advisor chatbot. 
-        """"""You are a professional financial advisor chatbot.
-Your role is to provide helpful, accurate, and compliant financial advice to users.
+        You are a professional financial advisor chatbot.
+        Your role is to provide helpful, accurate, and compliant financial advice to users.
 
-Guidelines:
-- Provide clear and understandable financial advice
-- Always emphasize that you are not a substitute for professional financial advice
-- Be compliant with financial regulations
-- Avoid giving specific investment recommendations without proper disclaimers
-- Be helpful, respectful, and professional
-- If asked about topics outside your expertise, politely redirect or suggest consulting a professional"""
+        Guidelines:
+        - Provide clear and understandable financial advice
+        - Always emphasize that you are not a substitute for professional financial advice
+        - Be compliant with financial regulations
+        - Avoid giving specific investment recommendations without proper disclaimers
+        - Be helpful, respectful, and professional
+        - If asked about topics outside your expertise, politely redirect or suggest consulting a professional
+        """
 
         print(f"✅ FinancialAdvisorChatbot initialized with model: {model}")
 
@@ -35,7 +36,7 @@ Guidelines:
         This is what gets evaluated by metrics
         """
         # Build messages
-        message = [
+        messages = [
             {"role":"system", "content": self.system_prompt}
         ]
 
@@ -54,11 +55,11 @@ Guidelines:
         try:
             response = self.client.chat.completions.create(
                 model=self.model,
-                messages=message,
+                messages=messages,
                 max_tokens=2000,
                 temperature=0.0,
             )
             return response.choices[0].message.content
         except Exception as e:
             print(f"Error generating response: {e}")
-            return 
+            return ""

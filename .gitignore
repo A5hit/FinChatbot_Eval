@@ -21,3 +21,4 @@ htmlcov/
 # IDEs
 .vscode/
 .idea/
+.deepeval
