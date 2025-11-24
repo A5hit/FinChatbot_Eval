@@ -16,15 +16,15 @@ A robust, modular pipeline for automated LLM chatbot evaluation, using [DeepEval
 
 ## 📂 Project Structure
 
-── src/
-──── chatbot.py # FinancialAdvisorChatbot for all user queries
-──── metrics.py # CustomGROQLLM + DeepEval metric functions
-── scripts/
-──── batch_evaluation.py # Main evaluation runner (calls everything)
-── test_cases/
-──── golden_test_cases.json # List of user questions + expected outputs
-── .env # API keys etc. (never check in secrets)
-── README.md # This file
+--- src/
+-chatbot.py # FinancialAdvisorChatbot for all user queries
+-metrics.py # CustomGROQLLM + DeepEval metric functions
+--- scripts/
+-batch_evaluation.py # Main evaluation runner (calls everything)
+--- test_cases/
+-golden_test_cases.json # List of user questions + expected outputs
+---.env # API keys etc. (never check in secrets)
+--- README.md # This file
 
 
 ---
