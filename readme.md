@@ -16,18 +16,15 @@ A robust, modular pipeline for automated LLM chatbot evaluation, using [DeepEval
 
 ## 📂 Project Structure
 
-├── src/
-│ ├── chatbot.py # FinancialAdvisorChatbot for all user queries
-│ ├── metrics.py # CustomGROQLLM + DeepEval metric functions
-│
-├── scripts/
-│ ├── batch_evaluation.py # Main evaluation runner (calls everything)
-│
-├── test_cases/
-│ ├── golden_test_cases.json # List of user questions + expected outputs
-│
-├── .env # API keys etc. (never check in secrets)
-├── README.md # This file
+── src/
+──── chatbot.py # FinancialAdvisorChatbot for all user queries
+──── metrics.py # CustomGROQLLM + DeepEval metric functions
+── scripts/
+──── batch_evaluation.py # Main evaluation runner (calls everything)
+── test_cases/
+──── golden_test_cases.json # List of user questions + expected outputs
+── .env # API keys etc. (never check in secrets)
+── README.md # This file
 
 
 ---
@@ -77,7 +74,7 @@ python scripts/batch_evaluation.py --chatbot-model llama-3.1-8b-instant --eval-m
 1. **Load golden test cases:** All test data sourced from `golden_test_cases.json`
 2. **Generate answers:** `FinancialAdvisorChatbot` produces an actual output for each query.
 3. **Evaluate answers:** Each answer is scored using multiple DeepEval metrics, with responses judged by your `CustomGROQLLM`.
-4. **Visualize and track:** Results are printed to the console and logged to [Confident AI dashboard](https://app.confident-ai.com).
+4. **Visualise and track:** Results are printed to the console and logged to [Confident AI dashboard](https://app.confident-ai.com).
 
 ### Example Metric Output
 
@@ -121,7 +118,6 @@ Use this dashboard to analyze trends, export results, and compare models.
 ## 🤝 Contributing
 
 Pull requests, feedback, and discussions are welcome!  
-See `CONTRIBUTING.md` (if using) or open an issue.
 
 ---
 
